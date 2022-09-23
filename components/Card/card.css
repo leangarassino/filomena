@@ -1,0 +1,22 @@
+/* div:hover{
+    background-color: whitesmoke;
+    color:#1C1824        
+} */
+
+.hover:hover div{
+    background-color: whitesmoke;
+    color:#1C1824 
+}
+
+.hover:hover{
+    color:#1C1824
+}
+
+.hover:hover .text{
+    color:#1C1824
+  }
+
+.text{
+    color: #fff696
+}
+
