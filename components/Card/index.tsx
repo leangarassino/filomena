@@ -1,6 +1,5 @@
 import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
-import { Box, Button, CardActionArea, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import Image, { StaticImageData } from 'next/image'
 import { FC } from 'react'
 
@@ -16,11 +15,11 @@ export const CardComponent: FC<Props> = ({ page, image = '' }) => {
       className='hover'
       sx={{ width: 'max-content', boxShadow: '2px 2px 5px 5px #353535' }}
     >
-      <a href={page} target='_blank'>
+      <a href={page} target='_blank' rel="noreferrer">
         <Card
           sx={{ maxWidth: 'max-content', borderRadius: 'unset', background: '#1C1824',  paddingTop: '15px' }}
         >
-          <Image src={image} width={300} height={200} />
+          <Image src={image} width={300} height={200} alt={'Logos de canales de televisión'} />
 
           <Box component='div'>
             <Typography
