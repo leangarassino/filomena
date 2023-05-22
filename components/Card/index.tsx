@@ -26,7 +26,9 @@ export const CardComponent: FC<Props> = ({ image = '', name = 'Fugazza', ingredi
     <Box
       component='div'
       className='hover'
-      // sx={{ boxShadow: `2px 2px 5px 5px ${color}` }}
+      sx={{
+        minHeight: '350px'
+      }}
     >
         <Card
           sx={{ maxWidth: 'max-content', borderRadius: '50px', background: '#d6e8ff', boxShadow: 'none', marginBottom: '8px' }}

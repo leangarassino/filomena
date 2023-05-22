@@ -40,7 +40,7 @@ const HomePage = () => {
         {isAnimating && <Typography ref={typingRef} className='typing-effect span' variant="body1" sx={{
             textAlign: 'center',
             fontSize: isMobile ? '30px' : '48px',
-            marginBottom: isMobile ? '5px' : '',
+            marginBottom: isMobile ? '5px' : '40px',
             fontFamily: 'cursive'
           }}>Pizzas de autor</Typography>}        
       </Box>
