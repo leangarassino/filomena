@@ -22,7 +22,7 @@ const HomePage = () => {
   useEffect(() => {
     if (isAnimating) {
       setTimeout(() => {
-        setIsAnimating(true);
+        setIsAnimating(false);
         // setIsAnimating(true); // Detener la animación después de cierto tiempo (ejemplo: 5 segundos)
       }, 5000); // Duración del tiempo antes de detener la animación (ejemplo: 5 segundos)
       setTimeout(() => {
