@@ -32,7 +32,7 @@ export const CardComponent: FC<Props> = ({ image = '', name = 'Fugazza', ingredi
           sx={{ maxWidth: 'max-content', borderRadius: '50px', background: '#d6e8ff', boxShadow: 'none', marginBottom: '8px' }}
           onClick={sendMessage}
         >
-          <Image src={image} width={300} height={200} alt={'Logos de canales de televisión'} />
+          <Image src={image} width={300} height={200} alt={'Logos de canales de televisión'} className='image' />
 
           <Box component='div'>
             <Typography

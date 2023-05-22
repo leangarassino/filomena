@@ -26,3 +26,8 @@
     text-transform: uppercase
 }
 
+.image{
+    min-height: 200px;
+    min-width: 300px;
+}
+
