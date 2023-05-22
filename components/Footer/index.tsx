@@ -1,7 +1,9 @@
-import { Box, Typography } from '@mui/material'
+import { Box, Typography, useMediaQuery } from '@mui/material'
 import React from 'react'
+import { theme } from '../../theme/theme'
 
 export const FooterComponent = () => {
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
   return (
     <>
       <div className='footer'>
@@ -16,10 +18,10 @@ export const FooterComponent = () => {
           <Typography variant="h5" sx={{
             height: 'fit-content'
           }}>FILOMENA</Typography>
-          <div className="border-bottom-footer"></div>
+          <div className={isMobile ? "border-bottom-footer-mobile" : 'border-bottom-footer'}></div>
         </Box>        
       </div>
-      <div className="line-footer">
+      <div className={isMobile ? "line-footer line-footer-mobile" : 'line-footer'}>
           <span className='color-green'></span>
           <span className='color-red'></span>
       </div>    
