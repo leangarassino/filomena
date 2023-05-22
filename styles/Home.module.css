@@ -1,10 +1,32 @@
 
 .main{
-    min-height: calc(100vh - 80px);
-    padding: 40px;
-    background-color: #1C1824;
+    min-height: calc(100vh - 173px);
+    padding: 20px 40px 40px 40px;
+    background-color: white;
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
     justify-content: center;
 }
+
+@keyframes typing {
+    from {
+      width: 0;
+    }
+  }
+@keyframes blink {50% { border-color: transparent}}
+  
+.typing-effect {
+animation: typing alternate 2s steps(12), blink .5s infinite step-end alternate;
+overflow:hidden;
+}
+
+.span{
+    display: block;
+    font-family: monospace;
+    white-space: nowrap;
+    border-right: 4px solid;
+    width: 16ch;
+}
+
+
