@@ -7,16 +7,11 @@
     align-items: center;
 }
 
-.line-footer-mobile{  
-  bottom: -336px !important;
-}
-
 .line-footer {
     width: 100%;
     height: 2px;
-    position: absolute;
+    position: relative;
     overflow: hidden;
-    bottom: 49px;
   }
   
   .line-footer span {
@@ -54,14 +49,5 @@
     width: 116px;
     height: 4px;
     background-image: linear-gradient(to right, #007723, #007723 33.33%, white 33.33%, white 66.67%, #c90003 66.67%);
-    position: absolute;
-    bottom: 2px;
-  }
-  
-  .border-bottom-footer-mobile {
-    width: 116px;
-    height: 4px;
-    background-image: linear-gradient(to right, #007723, #007723 33.33%, white 33.33%, white 66.67%, #c90003 66.67%);
-    position: absolute;
-    bottom: -380px;
+    position: relative;
   }
