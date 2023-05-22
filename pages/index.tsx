@@ -46,7 +46,7 @@ const HomePage = () => {
       </Box>
       <Grid item xs={12} md={6} lg={3} className="main" component='main'>
       {
-        array_page.map( (page, index, color) => (
+        array_page.map( (page, index) => (
           <CardComponent page={page.page} key={index} image={page.src} color={page.color} name={page.name} ingredients={page.ingredients}/>
         ))
       }
