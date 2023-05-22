@@ -70,7 +70,8 @@ export const CardComponent: FC<Props> = ({ image = '', name = 'Fugazza', ingredi
                   borderBottom: '1px solid rgba(214, 232, 255, 1)',
                   width: 'fit-content',
                   fontWeight: 300,
-                  fontFamily: 'cursive'
+                  fontFamily: 'cursive',
+                  fontSize: '1.15rem'
                 }}>{ingredient}</Typography>
               </Box>
             ))
