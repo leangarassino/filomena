@@ -1,7 +1,5 @@
 import { Box, Typography } from '@mui/material'
 import React from 'react'
-import Image from 'next/image'
-import FILOMENA from '../../public/images/filomena-edit.jpg'
 
 export const FooterComponent = () => {
   return (
