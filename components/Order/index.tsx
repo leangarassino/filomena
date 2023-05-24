@@ -10,6 +10,7 @@ export const OrderComponent: FC<Props> = ({order}) => {
   const [total, setTotal] = useState<number>(0)
   const [sendOrder, setSendOrder] = useState<{value: string, name: string}[]>([])
   const isLarge = useMediaQuery(theme.breakpoints.down('xl'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const calculatePriceAndOrder = () => {
     let calculateTotal = 0;
     const message: {value: string, name: string}[] = [];
@@ -42,9 +43,19 @@ export const OrderComponent: FC<Props> = ({order}) => {
   
   return (
     <Box sx={{
-      right: isLarge ? '20vw' : '21vw',
-      width: isLarge ? '20em' : '25em'
-    }} className='order'>
+      right: isLarge ? isMobile ? 'unset' : '20vw' : '21vw',
+      width: isLarge ? isMobile ? 'unset' : '20em' : '25em',
+      position: isMobile ? 'relative' : 'absolute',
+      marginTop: isMobile ? '30px' : '',
+      border: '1px dashed black',
+      height: '300px',
+      padding: '20px',
+      borderRadius: '20px',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between'
+    // eslint-disable-next-line react/jsx-no-duplicate-props
+    }}>
       <Typography className='title' variant='h5'>
         Su pedido:
       </Typography> 
