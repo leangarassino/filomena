@@ -1,6 +1,6 @@
 import { Box, Grid, Typography, useMediaQuery } from '@mui/material'
 import { StaticImageData } from 'next/image'
-import { CardComponent, FooterComponent, HeaderComponent } from '../components'
+import { CardComponent, FooterComponent, HeaderComponent, OrderComponent } from '../components'
 import FUGAZZA from '../public/images/fugazza-bg.png'
 import MUNDIAL from '../public/images/mundial.png'
 import MARGARITA from '../public/images/margarita-bg.png'
@@ -15,23 +15,35 @@ interface Page {
   ingredients: string[]
 }
 
+const initialValue = [
+  {value: '', index: 0, name: 'Campeón Mundial', price: 2000},
+  {value: '', index: 1, name: 'Fugazza con queso', price: 1500},
+  {value: '', index: 2, name: 'Margarita', price: 1500},
+]
+
 const HomePage = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
   const typingRef = useRef(null);
   const [isAnimating, setIsAnimating] = useState(true);
+  const [quantity, setQuantity] = useState<{value: string, index: number, name: string, price: number}[]>(initialValue);
   useEffect(() => {
     if (isAnimating) {
       setTimeout(() => {
         setIsAnimating(false);
-        // setIsAnimating(true); // Detener la animación después de cierto tiempo (ejemplo: 5 segundos)
-      }, 5000); // Duración del tiempo antes de detener la animación (ejemplo: 5 segundos)
+      }, 5000);
       setTimeout(() => {
         setIsAnimating(true);
-        // setIsAnimating(true); // Detener la animación después de cierto tiempo (ejemplo: 5 segundos)
       }, 5500);
     }
   }, [isAnimating]);
 
+  const receiveQuantity = (value: string, index: number) => {
+    setQuantity((prevQuantity) =>
+    prevQuantity.map((checkQuantity) =>
+    checkQuantity.index === index ? { ...checkQuantity, value: value } : checkQuantity
+      )
+    );
+  }
 
   return (
     <>
@@ -47,7 +59,13 @@ const HomePage = () => {
       <Grid item xs={12} md={6} lg={3} className="main" component='main'>
       {
         array_page.map( (page, index) => (
-          <CardComponent page={page.page} key={index} image={page.src} color={page.color} name={page.name} ingredients={page.ingredients}/>
+          index === 2 ?                 
+          <Box key={index} sx={{ width: '100%', display: 'grid', gridTemplateColumns: !isMobile ? '63%' : '' }}>
+            <CardComponent sendQuantity={(value) => receiveQuantity(value, index)} page={page.page} image={page.src} color={page.color} name={page.name} ingredients={page.ingredients}/>
+            <OrderComponent order={quantity} />
+          </Box>          
+          : 
+          <CardComponent sendQuantity={(value) => receiveQuantity(value, index)} page={page.page} key={index} image={page.src} color={page.color} name={page.name} ingredients={page.ingredients}/>
         ))
       }
       </Grid>
