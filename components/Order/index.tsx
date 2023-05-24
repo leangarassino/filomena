@@ -35,9 +35,7 @@ export const OrderComponent: FC<Props> = ({order}) => {
       message.push(msg);      
     })
     const phoneNumber = '3755712831'; // Número de teléfono al que se enviará el mensaje
-    const sendMessage = 'Hola, me gustaría encargar: ' + message.join(', ') + '. Muchas gracias :)'; // Mensaje a enviar
-    console.log('sendMessage', sendMessage);
-  
+    const sendMessage = 'Hola, me gustaría encargar: ' + message.join(', ') + '. Muchas gracias :)'; // Mensaje a enviar  
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(sendMessage)}`;
     window.open(url);
   };
@@ -88,7 +86,7 @@ export const OrderComponent: FC<Props> = ({order}) => {
             ${total}
           </Typography>        
         </Box>
-        <Button onClick={sendMessage} variant="contained" fullWidth sx={{
+        <Button disabled={sendOrder.length === 0 ? true : false} onClick={sendMessage} variant="contained" fullWidth sx={{
           marginTop: '12px'
         }}>Enviar Pedido</Button>
       </Box>
