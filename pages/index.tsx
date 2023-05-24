@@ -12,7 +12,8 @@ interface Page {
   src: StaticImageData,
   color: string,
   name: string,
-  ingredients: string[]
+  ingredients: string[],
+  price: number
 }
 
 const initialValue = [
@@ -61,11 +62,11 @@ const HomePage = () => {
         array_page.map( (page, index) => (
           index === 2 ?                 
           <Box key={index} sx={{ width: '100%', display: 'grid', gridTemplateColumns: !isMobile ? '63%' : '' }}>
-            <CardComponent sendQuantity={(value) => receiveQuantity(value, index)} page={page.page} image={page.src} color={page.color} name={page.name} ingredients={page.ingredients}/>
+            <CardComponent sendQuantity={(value) => receiveQuantity(value, index)} page={page.page} image={page.src} price={page.price} color={page.color} name={page.name} ingredients={page.ingredients}/>
             <OrderComponent order={quantity} />
           </Box>          
           : 
-          <CardComponent sendQuantity={(value) => receiveQuantity(value, index)} page={page.page} key={index} image={page.src} color={page.color} name={page.name} ingredients={page.ingredients}/>
+          <CardComponent sendQuantity={(value) => receiveQuantity(value, index)} price={page.price} page={page.page} key={index} image={page.src} color={page.color} name={page.name} ingredients={page.ingredients}/>
         ))
       }
       </Grid>
@@ -84,20 +85,23 @@ const array_page: Page[] = [
     src: MUNDIAL,
     color: '#00bd13',
     name: 'Campeón mundial',
-    ingredients: ['Salsa de tomate', 'Muzarella', 'Albahaca']
+    ingredients: ['Salsa de tomate', 'Muzarella', 'Albahaca'],
+    price: 2000
   },
   {
     page: 'https://youtu.be/06htSH24iuQ',
     src: FUGAZZA,
     color: '#ffffff',
     name: 'Fugazza con queso',
-    ingredients: ['Muzarella', 'Cebolla']
+    ingredients: ['Muzarella', 'Cebolla'],
+    price: 1500
   },
   {
     page: 'https://youtu.be/06htSH24iuQ',
     src: MARGARITA,
     color: '#e62e1b',
     name: 'Margarita',
-    ingredients: ['Salsa de tomate', 'Muzarella', 'Jamón', 'Morrón', 'Tomates', 'Aceitunas', 'Pesto de perejil']
+    ingredients: ['Salsa de tomate', 'Muzarella', 'Jamón', 'Morrón', 'Tomates', 'Aceitunas', 'Pesto de perejil'],
+    price: 1500
   },
 ]

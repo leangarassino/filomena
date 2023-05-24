@@ -11,9 +11,10 @@ interface Props {
   name?: string,
   ingredients?: string[],
   sendQuantity: (name: string) => void,
+  price: number
 }
 
-export const CardComponent: FC<Props> = ({ image = '', name = 'Fugazza', ingredients = [], sendQuantity }) => {
+export const CardComponent: FC<Props> = ({ image = '', name = 'Fugazza', ingredients = [], sendQuantity, price }) => {
   const [quantity, setQuantity] = useState<string>('')
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
 
@@ -49,13 +50,23 @@ export const CardComponent: FC<Props> = ({ image = '', name = 'Fugazza', ingredi
                 height: '35px',
                 textAlign: 'center',
                 justifyContent: 'center',
-                margin: '-5px 0px 15px 0px',
                 fontWeight: 600
               }}
               component="p"
               className="text"
             >
               {name}
+            </Typography>
+            <Typography sx={{
+                borderRadius: 'unset',
+                textTransform: 'none',
+                height: '35px',
+                textAlign: 'center',
+                justifyContent: 'center',
+                marginTop: '-8px',
+                fontWeight: 600
+              }}>
+              ${price}
             </Typography>
           </Box>
         </Card>

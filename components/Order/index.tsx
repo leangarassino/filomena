@@ -43,7 +43,7 @@ export const OrderComponent: FC<Props> = ({order}) => {
   
   return (
     <Box sx={{
-      right: isLarge ? isMobile ? 'unset' : '20vw' : '21vw',
+      left: isMobile ? 'unset' : '56vw',
       width: isLarge ? isMobile ? 'unset' : '20em' : '25em',
       position: isMobile ? 'relative' : 'absolute',
       marginTop: isMobile ? '30px' : '',
@@ -74,7 +74,7 @@ export const OrderComponent: FC<Props> = ({order}) => {
               borderBottom: '1px dashed rgba(28, 24, 36, 0.2)'
             }}>
               <Typography>
-                {`${name} (${value})`}
+                {`${name} x${value}`}
               </Typography>
               <Typography>
                 ${(price * parseInt(value))}
