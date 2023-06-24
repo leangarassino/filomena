@@ -1,4 +1,4 @@
-import { Box, Grid, Typography, useMediaQuery } from '@mui/material'
+import { Box, Button, Dialog, DialogTitle, Grid, Typography, useMediaQuery } from '@mui/material'
 import { StaticImageData } from 'next/image'
 import { CardComponent, FooterComponent, HeaderComponent, OrderComponent } from '../components'
 import FUGAZZA from '../public/images/fugazza-bg.png'
@@ -26,8 +26,21 @@ const HomePage = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
   const typingRef = useRef(null);
   const [isAnimating, setIsAnimating] = useState(true);
+  const [open, setOpen] = useState(true);
+  const [statusDialog, setStatusDialog] = useState(false);
   const [quantity, setQuantity] = useState<{value: string, index: number, name: string, price: number}[]>(initialValue);
   useEffect(() => {
+    const getCurrentTime = () => {
+      const currentDateTime = new Date();
+      const options: any = { weekday: 'long' };
+      const dayWeek = currentDateTime.toLocaleDateString('en-US', options);
+      if (currentDateTime.getHours() >= 19 && (dayWeek === 'Saturday' || dayWeek === 'Friday' || dayWeek === 'Sunday')) {
+        setOpen(true);
+      } else {
+        setOpen(false);
+      }
+    };
+    getCurrentTime();    
     if (isAnimating) {
       setTimeout(() => {
         setIsAnimating(false);
@@ -57,6 +70,46 @@ const HomePage = () => {
             fontFamily: 'cursive'
           }}>Pizzas de autor</Typography>}        
       </Box>
+      <Box sx={{display: 'flex', width: '100%', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', gap: '5px'}}>
+        <div className="icon-container">
+        <Button onClick={() => setStatusDialog(true)} variant="outlined" sx={{height: 'fit-content', marginTop: '6px', borderRadius: '12px'}}>HORARIOS</Button>
+        {
+        open 
+        ? 
+        <div className="icon">Abierto</div> 
+        : 
+        <>
+          <div className="icon-close">Cerrado</div>
+        </>
+        }
+        </div>
+        {
+          open
+          ?
+          <Typography variant='h5' sx={{fontSize: '18px', fontFamily: 'monospace', fontWeight: '600', color:'#262837'}}>Atendemos hasta las 00:00hs</Typography> 
+          :
+          <Typography variant='h5' sx={{fontSize: '18px', fontFamily: 'monospace', fontWeight: '600', color:'#262837'}}>Cerramos a las 21hs</Typography> 
+        }
+        <Dialog onClose={() => setStatusDialog(false)} open={statusDialog}>
+          <Box sx={{
+            padding: '25px',
+          }}>
+            <DialogTitle sx={{
+              borderBottom: '1px solid gray',
+              padding: '4px',
+              marginBottom: '20px'
+            }}>HORARIOS</DialogTitle>
+            {
+              days_opened.map((day, index) => <Typography sx={{fontSize: '18px', fontFamily: 'monospace', fontWeight: '600', color:'#262837', display: 'flex', gap: '5px'}} key={index}>
+                {day} de 19:00 a 00:00 hs
+              </Typography>)
+            }          
+          </Box>
+        </Dialog>      
+    </Box>  
+      
+      
+      
       <Grid item xs={12} md={6} lg={3} className="main" component='main'>
       {
         array_page.map( (page, index) => (
@@ -86,15 +139,15 @@ const array_page: Page[] = [
     color: '#00bd13',
     name: 'Campeón mundial',
     ingredients: ['Salsa de tomate', 'Muzarella', 'Albahaca'],
-    price: 2000
+    price: 2500
   },
   {
     page: 'https://youtu.be/06htSH24iuQ',
     src: FUGAZZA,
     color: '#ffffff',
-    name: 'Fugazza con queso',
+    name: 'Fiorentina',
     ingredients: ['Muzarella', 'Cebolla'],
-    price: 1500
+    price: 2100
   },
   {
     page: 'https://youtu.be/06htSH24iuQ',
@@ -102,6 +155,8 @@ const array_page: Page[] = [
     color: '#e62e1b',
     name: 'Margarita',
     ingredients: ['Salsa de tomate', 'Muzarella', 'Jamón', 'Morrón', 'Tomates', 'Aceitunas', 'Pesto de perejil'],
-    price: 1500
+    price: 1800
   },
 ]
+
+const days_opened = ['Viernes', 'Sábado', 'Domingo'];
