@@ -28,6 +28,7 @@ const HomePage = () => {
   const [isAnimating, setIsAnimating] = useState(true);
   const [open, setOpen] = useState(true);
   const [statusDialog, setStatusDialog] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [quantity, setQuantity] = useState<{value: string, index: number, name: string, price: number}[]>(initialValue);
   useEffect(() => {
     const getCurrentTime = () => {
@@ -49,6 +50,7 @@ const HomePage = () => {
         setIsAnimating(true);
       }, 5500);
     }
+    setLoading(false);
   }, [isAnimating]);
 
   const receiveQuantity = (value: string, index: number) => {
@@ -62,67 +64,85 @@ const HomePage = () => {
   return (
     <>
       <HeaderComponent />
-      <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', paddingTop: '50px', height: '72px'}}>
+      {
+       !loading
+       ?  
+       <>
+        <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', paddingTop: '50px', height: '72px'}}>
         {isAnimating && <Typography ref={typingRef} className='typing-effect span' variant="body1" sx={{
             textAlign: 'center',
             fontSize: isMobile ? '30px' : '48px',
             marginBottom: isMobile ? '5px' : '40px',
             fontFamily: 'cursive'
           }}>Pizzas de autor</Typography>}        
-      </Box>
-      <Box sx={{display: 'flex', width: '100%', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', gap: '5px'}}>
-        <div className="icon-container">
-        <Button onClick={() => setStatusDialog(true)} variant="outlined" sx={{height: 'fit-content', marginTop: '6px', borderRadius: '12px'}}>HORARIOS</Button>
-        {
-        open 
-        ? 
-        <div className="icon">Abierto</div> 
-        : 
-        <>
-          <div className="icon-close">Cerrado</div>
-        </>
-        }
-        </div>
-        {
-          open
-          ?
-          <Typography variant='h5' sx={{fontSize: '18px', fontFamily: 'monospace', fontWeight: '600', color:'#262837'}}>Atendemos hasta las 00:00hs</Typography> 
-          :
-          <Typography variant='h5' sx={{fontSize: '18px', fontFamily: 'monospace', fontWeight: '600', color:'#262837'}}>Cerramos a las 21hs</Typography> 
-        }
-        <Dialog onClose={() => setStatusDialog(false)} open={statusDialog}>
-          <Box sx={{
-            padding: '25px',
-          }}>
-            <DialogTitle sx={{
-              borderBottom: '1px solid gray',
-              padding: '4px',
-              marginBottom: '20px'
-            }}>HORARIOS</DialogTitle>
-            {
-              days_opened.map((day, index) => <Typography sx={{fontSize: '18px', fontFamily: 'monospace', fontWeight: '600', color:'#262837', display: 'flex', gap: '5px'}} key={index}>
-                {day} de 19:00 a 00:00 hs
-              </Typography>)
-            }          
-          </Box>
-        </Dialog>      
-    </Box>  
-      
-      
-      
-      <Grid item xs={12} md={6} lg={3} className="main" component='main'>
-      {
-        array_page.map( (page, index) => (
-          index === 2 ?                 
-          <Box key={index} sx={{ width: '100%', display: 'grid', gridTemplateColumns: !isMobile ? '63%' : '' }}>
-            <CardComponent sendQuantity={(value) => receiveQuantity(value, index)} page={page.page} image={page.src} price={page.price} color={page.color} name={page.name} ingredients={page.ingredients}/>
-            <OrderComponent order={quantity} />
-          </Box>          
+        </Box>
+        <Box sx={{display: 'flex', width: '100%', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', gap: '5px'}}>
+          <div className="icon-container">
+          <Button onClick={() => setStatusDialog(true)} variant="outlined" sx={{height: 'fit-content', marginTop: '6px', borderRadius: '12px'}}>HORARIOS</Button>
+          {
+          open 
+          ? 
+          <div className="icon">Abierto</div> 
           : 
-          <CardComponent sendQuantity={(value) => receiveQuantity(value, index)} price={page.price} page={page.page} key={index} image={page.src} color={page.color} name={page.name} ingredients={page.ingredients}/>
-        ))
-      }
+          <>
+            <div className="icon-close">Cerrado</div>
+          </>
+          }
+          </div>
+          {
+            open
+            ?
+            <Typography variant='h5' sx={{fontSize: '18px', fontFamily: 'monospace', fontWeight: '600', color:'#262837'}}>Atendemos hasta las 00:00hs</Typography> 
+            :
+            <Typography variant='h5' sx={{fontSize: '18px', fontFamily: 'monospace', fontWeight: '600', color:'#262837'}}>Cerramos a las 21hs</Typography> 
+          }
+          <Dialog onClose={() => setStatusDialog(false)} open={statusDialog}>
+            <Box sx={{
+              padding: '25px',
+            }}>
+              <DialogTitle sx={{
+                borderBottom: '1px solid gray',
+                padding: '4px',
+                marginBottom: '20px'
+              }}>HORARIOS</DialogTitle>
+              {
+                days_opened.map((day, index) => <Typography sx={{fontSize: '18px', fontFamily: 'monospace', fontWeight: '600', color:'#262837', display: 'flex', gap: '5px'}} key={index}>
+                  {day} de 19:00 a 00:00 hs
+                </Typography>)
+              }          
+            </Box>
+          </Dialog>      
+      </Box>  
+        
+        
+        
+      <Grid item xs={12} md={6} lg={3} className="main" component='main'>
+        {
+          array_page.map( (page, index) => (
+            index === 2 ?                 
+            <Box key={index} sx={{ width: '100%', display: 'grid', gridTemplateColumns: !isMobile ? '63%' : '' }}>
+              <CardComponent sendQuantity={(value) => receiveQuantity(value, index)} page={page.page} image={page.src} price={page.price} color={page.color} name={page.name} ingredients={page.ingredients}/>
+              <OrderComponent order={quantity} />
+            </Box>          
+            : 
+            <CardComponent sendQuantity={(value) => receiveQuantity(value, index)} price={page.price} page={page.page} key={index} image={page.src} color={page.color} name={page.name} ingredients={page.ingredients}/>
+          ))
+        }
       </Grid>
+       </>
+      :
+      <Box sx={{
+        minHeight: '89vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}>
+        <Typography>
+          Cargando...
+        </Typography>  
+      </Box>
+      }
+      
       <FooterComponent />
     </>
   )
