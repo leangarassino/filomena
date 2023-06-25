@@ -30,13 +30,14 @@ const HomePage = () => {
   const [openDay, setOpenDay] = useState(false);
   const [statusDialog, setStatusDialog] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [paused, setPaused] = useState(false);
   const [quantity, setQuantity] = useState<{value: string, index: number, name: string, price: number}[]>(initialValue);
   useEffect(() => {
     const getCurrentTime = () => {
       const currentDateTime = new Date();
       const options: any = { weekday: 'long' };
       const dayWeek = currentDateTime.toLocaleDateString('en-US', options);
-      if (currentDateTime.getHours() >= 19 && (dayWeek === 'Saturday' || dayWeek === 'Friday' || dayWeek === 'Sunday')) {
+      if (currentDateTime.getHours() >= 1 && (dayWeek === 'Saturday' || dayWeek === 'Friday' || dayWeek === 'Sunday')) {
         setOpen(true);
       } else {
         setOpen(false);
@@ -55,6 +56,18 @@ const HomePage = () => {
     }
     setLoading(false);
   }, [isAnimating]);
+
+  useEffect(() => {
+    if (!paused) {
+      setTimeout(() => {
+        setPaused(true);
+      }, 5600);
+      setTimeout(() => {
+        setPaused(false);
+      }, 6500);
+      return;
+    }
+  }, [paused]);
 
   const receiveQuantity = (value: string, index: number) => {
     setQuantity((prevQuantity) =>
@@ -85,10 +98,10 @@ const HomePage = () => {
           {
           open 
           ? 
-          <div className="icon">Abierto</div> 
+          <div className={paused ? 'icon paused' :'icon'}>Abierto</div> 
           : 
           <>
-            <div className="icon-close">Cerrado</div>
+            <div className={paused ? 'icon-close paused' : 'icon-close'}>Cerrado</div>
           </>
           }
           </div>
