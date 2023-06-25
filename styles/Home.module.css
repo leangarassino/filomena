@@ -44,12 +44,12 @@ overflow:hidden;
   height: fit-content;
   position: absolute;
   top: 55%;
-  left: 10%;
+  left: 5%;
   transform: translate(-50%, -50%);
   /* background-color: #000; */
   border-radius: 12px 0px 0px 12px;
-  -webkit-animation: move 4s infinite linear alternate;
-  animation: move 4s infinite linear alternate;
+  -webkit-animation: move 4.5s infinite linear alternate;
+  animation: move 4.5s infinite linear alternate;
   font-size: 24px;
   font-family: monospace;
   line-height: 15px;
@@ -70,8 +70,8 @@ overflow:hidden;
   transform: translate(-50%, -50%);
   /* background-color: #000; */
   border-radius: 12px 0px 0px 12px;
-  -webkit-animation: move 4s infinite linear alternate;
-  animation: move 4s infinite linear alternate;
+  -webkit-animation: move 4.5s infinite linear alternate;
+  animation: move 4.5s infinite linear alternate;
   font-size: 24px;
   font-family: monospace;
   line-height: 15px;
@@ -88,7 +88,7 @@ overflow:hidden;
     transform: translateX(0);
   }
   50% {
-    transform: translateX(110px);
+    transform: translateX(100px);
   }
   100% {
     transform: translateX(0);
