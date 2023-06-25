@@ -129,7 +129,7 @@ const HomePage = () => {
             index === 2 ?                 
             <Box key={index} sx={{ width: '100%', display: 'grid', gridTemplateColumns: !isMobile ? '63%' : '' }}>
               <CardComponent sendQuantity={(value) => receiveQuantity(value, index)} page={page.page} image={page.src} price={page.price} color={page.color} name={page.name} ingredients={page.ingredients}/>
-              <OrderComponent order={quantity} />
+              <OrderComponent order={quantity} open={open} />
             </Box>          
             : 
             <CardComponent sendQuantity={(value) => receiveQuantity(value, index)} price={page.price} page={page.page} key={index} image={page.src} color={page.color} name={page.name} ingredients={page.ingredients}/>
