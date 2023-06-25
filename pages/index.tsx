@@ -17,9 +17,9 @@ interface Page {
 }
 
 const initialValue = [
-  {value: '', index: 0, name: 'Campeón Mundial', price: 2000},
-  {value: '', index: 1, name: 'Fugazza con queso', price: 1500},
-  {value: '', index: 2, name: 'Margarita', price: 1500},
+  {value: '', index: 0, name: 'Campeón Mundial', price: 2500},
+  {value: '', index: 1, name: 'Fiorentina', price: 2100},
+  {value: '', index: 2, name: 'Margarita', price: 1800},
 ]
 
 const HomePage = () => {
@@ -35,7 +35,7 @@ const HomePage = () => {
       const currentDateTime = new Date();
       const options: any = { weekday: 'long' };
       const dayWeek = currentDateTime.toLocaleDateString('en-US', options);
-      if (currentDateTime.getHours() >= 19 && (dayWeek === 'Saturday' || dayWeek === 'Friday' || dayWeek === 'Sunday')) {
+      if (currentDateTime.getHours() >= 1 && (dayWeek === 'Saturday' || dayWeek === 'Friday' || dayWeek === 'Sunday')) {
         setOpen(true);
       } else {
         setOpen(false);
@@ -94,7 +94,7 @@ const HomePage = () => {
             ?
             <Typography variant='h5' sx={{fontSize: '18px', fontFamily: 'monospace', fontWeight: '600', color:'#262837'}}>Atendemos hasta las 00:00hs</Typography> 
             :
-            <Typography variant='h5' sx={{fontSize: '18px', fontFamily: 'monospace', fontWeight: '600', color:'#262837'}}>Cerramos a las 21hs</Typography> 
+            <Typography variant='h5' sx={{fontSize: '18px', fontFamily: 'monospace', fontWeight: '600', color:'#262837'}}>Abrimos a las 19:00hs</Typography> 
           }
           <Dialog onClose={() => setStatusDialog(false)} open={statusDialog}>
             <Box sx={{
@@ -158,7 +158,7 @@ const array_page: Page[] = [
     src: MUNDIAL,
     color: '#00bd13',
     name: 'Campeón mundial',
-    ingredients: ['Salsa de tomate', 'Muzarella', 'Albahaca'],
+    ingredients: ['Salsa de tomate', 'Muzarella', 'Jamón', 'Morrón', 'Tomates', 'Aceitunas', 'Pesto de perejil'],    
     price: 2500
   },
   {
@@ -174,7 +174,7 @@ const array_page: Page[] = [
     src: MARGARITA,
     color: '#e62e1b',
     name: 'Margarita',
-    ingredients: ['Salsa de tomate', 'Muzarella', 'Jamón', 'Morrón', 'Tomates', 'Aceitunas', 'Pesto de perejil'],
+    ingredients: ['Salsa de tomate', 'Muzarella', 'Albahaca'],
     price: 1800
   },
 ]
