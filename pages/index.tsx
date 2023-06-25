@@ -27,6 +27,7 @@ const HomePage = () => {
   const typingRef = useRef(null);
   const [isAnimating, setIsAnimating] = useState(true);
   const [open, setOpen] = useState(true);
+  const [openDay, setOpenDay] = useState(false);
   const [statusDialog, setStatusDialog] = useState(false);
   const [loading, setLoading] = useState(true);
   const [quantity, setQuantity] = useState<{value: string, index: number, name: string, price: number}[]>(initialValue);
@@ -39,6 +40,8 @@ const HomePage = () => {
         setOpen(true);
       } else {
         setOpen(false);
+        if ((dayWeek === 'Saturday' || dayWeek === 'Friday' || dayWeek === 'Sunday')) setOpenDay(true)
+        else setOpenDay(false)
       }
     };
     getCurrentTime();    
@@ -94,7 +97,11 @@ const HomePage = () => {
             ?
             <Typography variant='h5' sx={{fontSize: '18px', fontFamily: 'monospace', fontWeight: '600', color:'#262837'}}>Atendemos hasta las 00:00hs</Typography> 
             :
+            openDay 
+            ?
             <Typography variant='h5' sx={{fontSize: '18px', fontFamily: 'monospace', fontWeight: '600', color:'#262837'}}>Abrimos a las 19:00hs</Typography> 
+            :
+            <Typography variant='h5' sx={{fontSize: '18px', fontFamily: 'monospace', fontWeight: '600', color:'#262837'}}>Abierto de viernes a domingo<br></br> desde las 19:00hs</Typography> 
           }
           <Dialog onClose={() => setStatusDialog(false)} open={statusDialog}>
             <Box sx={{
