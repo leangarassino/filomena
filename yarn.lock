@@ -841,10 +841,10 @@ callsites@^3.0.0:
   resolved "https://registry.npmjs.org/callsites/-/callsites-3.1.0.tgz"
   integrity sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==
 
-caniuse-lite@^1.0.30001400, caniuse-lite@^1.0.30001406:
-  version "1.0.30001410"
-  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001410.tgz"
-  integrity sha512-QoblBnuE+rG0lc3Ur9ltP5q47lbguipa/ncNMyyGuqPk44FxbScWAeEO+k5fSQ8WekdAK4mWqNs1rADDAiN5xQ==
+caniuse-lite@^1.0.30001400, caniuse-lite@^1.0.30001406, caniuse-lite@^1.0.30001507:
+  version "1.0.30001507"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001507.tgz"
+  integrity sha512-SFpUDoSLCaE5XYL2jfqe9ova/pbQHEmbheDf5r4diNwbAgR3qxM9NQtfsiSscjqoya5K7kFcHPUQ+VsUkIJR4A==
 
 chalk@^2.0.0:
   version "2.4.2"
