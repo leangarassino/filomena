@@ -30,7 +30,6 @@ const HomePage = () => {
   const [openDay, setOpenDay] = useState(false);
   const [statusDialog, setStatusDialog] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [paused, setPaused] = useState(false);
   const [quantity, setQuantity] = useState<{value: string, index: number, name: string, price: number}[]>(initialValue);
   useEffect(() => {
     const getCurrentTime = () => {
@@ -56,18 +55,6 @@ const HomePage = () => {
     }
     setLoading(false);
   }, [isAnimating]);
-
-  useEffect(() => {
-    if (!paused) {
-      setTimeout(() => {
-        setPaused(true);
-      }, 5600);
-      setTimeout(() => {
-        setPaused(false);
-      }, 6500);
-      return;
-    }
-  }, [paused]);
 
   const receiveQuantity = (value: string, index: number) => {
     setQuantity((prevQuantity) =>
@@ -96,12 +83,12 @@ const HomePage = () => {
           <div className="icon-container">
           <Button onClick={() => setStatusDialog(true)} variant="outlined" sx={{height: 'fit-content', marginTop: '6px', borderRadius: '12px'}}>HORARIOS</Button>
           {
-          open 
+          !open 
           ? 
-          <div className={paused ? 'icon paused' :'icon'}>Abierto</div> 
+          <div className={'icon'}>Abierto</div> 
           : 
           <>
-            <div className={paused ? 'icon-close paused' : 'icon-close'}>Cerrado</div>
+          <div className={'icon-close'}>Cerrado</div>
           </>
           }
           </div>

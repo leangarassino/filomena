@@ -48,8 +48,8 @@ overflow:hidden;
   transform: translate(-50%, -50%);
   /* background-color: #000; */
   border-radius: 12px 0px 0px 12px;
-  -webkit-animation: move 5.5s alternate linear alternate;
-  animation: move 5.5s alternate linear alternate;
+  -webkit-animation: move 2s infinite linear alternate;
+  animation: move 2s infinite linear alternate;
   font-size: 24px;
   font-family: monospace;
   line-height: 15px;
@@ -70,8 +70,8 @@ overflow:hidden;
   transform: translate(-50%, -50%);
   /* background-color: #000; */
   border-radius: 12px 0px 0px 12px;
-  -webkit-animation: borderAnimation 2.5s infinite linear alternate;
-  animation: borderAnimation 2.5s infinite linear alternate;
+  -webkit-animation: move 2s infinite linear alternate;
+  animation: move 2s infinite linear alternate;
   font-size: 24px;
   font-family: monospace;
   line-height: 15px;
@@ -82,30 +82,13 @@ overflow:hidden;
   padding: 14px;
   
 }
-.paused{
-  animation-play-state: paused;
-  transform: translateX(0);
-  animation: borderAnimation 2s infinite alternate;
-}
 
 @keyframes move {
   0% {
     transform: translateX(0);
   }
-  50% {
-    transform: translateX(30px);
-  }
   100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes borderAnimation {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(20px);
+    transform: translateX(45px);
   }
 }
 
