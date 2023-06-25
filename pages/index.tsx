@@ -1,4 +1,4 @@
-import { Box, Button, Dialog, DialogTitle, Grid, Typography, useMediaQuery } from '@mui/material'
+import { Box, Button, CircularProgress, Dialog, DialogTitle, Grid, Typography, useMediaQuery } from '@mui/material'
 import { StaticImageData } from 'next/image'
 import { CardComponent, FooterComponent, HeaderComponent, OrderComponent } from '../components'
 import FUGAZZA from '../public/images/fugazza-bg.png'
@@ -144,9 +144,7 @@ const HomePage = () => {
         alignItems: 'center',
         justifyContent: 'center'
       }}>
-        <Typography>
-          Cargando...
-        </Typography>  
+        <CircularProgress color="secondary" />
       </Box>
       }
       
