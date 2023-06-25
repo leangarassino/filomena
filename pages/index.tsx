@@ -35,7 +35,7 @@ const HomePage = () => {
       const currentDateTime = new Date();
       const options: any = { weekday: 'long' };
       const dayWeek = currentDateTime.toLocaleDateString('en-US', options);
-      if (currentDateTime.getHours() >= 1 && (dayWeek === 'Saturday' || dayWeek === 'Friday' || dayWeek === 'Sunday')) {
+      if (currentDateTime.getHours() >= 19 && (dayWeek === 'Saturday' || dayWeek === 'Friday' || dayWeek === 'Sunday')) {
         setOpen(true);
       } else {
         setOpen(false);
