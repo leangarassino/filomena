@@ -83,7 +83,7 @@ const HomePage = () => {
           <div className="icon-container">
           <Button onClick={() => setStatusDialog(true)} variant="outlined" sx={{height: 'fit-content', marginTop: '6px', borderRadius: '12px'}}>HORARIOS</Button>
           {
-          !open 
+          open 
           ? 
           <div className={'icon'}>Abierto</div> 
           : 
