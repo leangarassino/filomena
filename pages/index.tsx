@@ -1,9 +1,9 @@
 import { Box, Button, CircularProgress, Dialog, DialogTitle, Grid, Typography, useMediaQuery } from '@mui/material'
 import { StaticImageData } from 'next/image'
 import { CardComponent, FooterComponent, HeaderComponent, OrderComponent } from '../components'
-import FUGAZZA from '../public/images/fugazza-bg.png'
-import MUNDIAL from '../public/images/mundial.png'
-import MARGARITA from '../public/images/margarita-bg.png'
+import FIORENTINA from '../public/images/fiorentina.png'
+import MUNDIAL from '../public/images/cmundial.png'
+import MARGARITA from '../public/images/margarita.png'
 import { useEffect, useRef, useState } from 'react'
 import { theme } from '../theme/theme'
 
@@ -163,15 +163,15 @@ const array_page: Page[] = [
     src: MUNDIAL,
     color: '#00bd13',
     name: 'Campeón mundial',
-    ingredients: ['Salsa de tomate', 'Muzarella', 'Jamón', 'Morrón', 'Tomates', 'Aceitunas', 'Pesto de perejil'],    
+    ingredients: ['Jamón', 'Morrones', 'Albahaca', 'Orégano', 'Pesto de perejil'],    
     price: 2500
   },
   {
     page: 'https://youtu.be/06htSH24iuQ',
-    src: FUGAZZA,
+    src: FIORENTINA,
     color: '#ffffff',
     name: 'Fiorentina',
-    ingredients: ['Muzarella', 'Cebolla'],
+    ingredients: ['Roquefort', 'Cebolla rehogada', 'Tomates en rodajas', 'Orégano fresco'],
     price: 2100
   },
   {
@@ -179,9 +179,9 @@ const array_page: Page[] = [
     src: MARGARITA,
     color: '#e62e1b',
     name: 'Margarita',
-    ingredients: ['Salsa de tomate', 'Muzarella', 'Albahaca'],
+    ingredients: ['Albahaca ', 'Orégano fresco', 'Aceite de oliva'],
     price: 1800
-  },
+  },  
 ]
 
 const days_opened = ['Viernes', 'Sábado', 'Domingo'];

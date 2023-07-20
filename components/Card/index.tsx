@@ -38,7 +38,7 @@ export const CardComponent: FC<Props> = ({ image = '', name = 'Fugazza', ingredi
       }}
     >
         <Card
-          sx={{ maxWidth: 'max-content', borderRadius: '50px', background: '#d6e8ff', boxShadow: 'none', marginBottom: '8px' }}
+          sx={{ maxWidth: 'max-content', borderRadius: '28px', background: 'rgba(214, 232, 255, 0.4)', boxShadow: 'none', marginBottom: '8px', border: '1px solid rgba(29, 80, 161, 0.2)' }}
         >
           <Image src={image} width={300} height={200} alt={'Logos de canales de televisión'} className='image' />
 
@@ -106,7 +106,7 @@ export const CardComponent: FC<Props> = ({ image = '', name = 'Fugazza', ingredi
               }}>
                 <Typography key={index} sx={{
                   textAlign: 'center',
-                  borderBottom: '1px solid rgba(214, 232, 255, 1)',
+                  borderBottom: '2px solid rgba(214, 232, 255, 1)',
                   width: 'fit-content',
                   fontWeight: 300,
                   fontFamily: 'cursive',
