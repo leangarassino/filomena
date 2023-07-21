@@ -51,7 +51,7 @@ const HomePage = () => {
       }, 5000);
       setTimeout(() => {
         setIsAnimating(true);
-      }, 5500);
+      }, 5100);
     }
     setLoading(false);
   }, [isAnimating]);
@@ -84,11 +84,19 @@ const HomePage = () => {
           <Button onClick={() => setStatusDialog(true)} variant="outlined" sx={{height: 'fit-content', marginTop: '6px', borderRadius: '12px'}}>HORARIOS</Button>
           {
           open 
-          ? 
-          <div className={'icon'}>Abierto</div> 
+          ?
+          <div className={'icon-box-green'}>
+            {
+              isAnimating && <div className={'icon'}>Abierto</div> 
+            }
+          </div> 
           : 
           <>
-          <div className={'icon-close'}>Cerrado</div>
+          <div className={'icon-box-red'}>
+            {
+              isAnimating && <div className={'icon-close'}>Cerrado</div>
+            }            
+          </div>
           </>
           }
           </div>

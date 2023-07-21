@@ -30,7 +30,8 @@ overflow:hidden;
 }
 
 .icon-container {
-  width: 135px;
+  width: 100%;
+  max-width: 450px;
   height: 105px;
   position: relative;
   overflow: hidden;
@@ -39,23 +40,38 @@ overflow:hidden;
   margin-top: 10px;
 }
 
+.icon-box-red{
+  position: absolute;
+  width: 100%;
+  border-top: 1px solid rgba(244, 67, 54, 0.4);
+  border-bottom: 1px solid rgba(244, 67, 54, 0.4);
+  top: 50%;
+  height: 45px;
+}
+
+.icon-box-green{
+  position: absolute;
+  width: 100%;
+  border-top: 1px solid rgba(0, 128, 0, 0.4);
+  border-bottom: 1px solid rgba(0, 128, 0, 0.4);
+  top: 50%;
+  height: 45px;
+}
+
 .icon {
   /* width: 100px; */
   height: fit-content;
-  position: absolute;
-  top: 55%;
-  left: 10%;
   transform: translate(-50%, -50%);
   /* background-color: #000; */
-  border-radius: 12px 0px 0px 12px;
-  -webkit-animation: move 2s infinite linear alternate;
-  animation: move 2s infinite linear alternate;
+  /* border-radius: 12px 0px 0px 12px; */
+  -webkit-animation: move 5s infinite linear alternate;
+  animation: move 5s infinite linear alternate;
   font-size: 24px;
   font-family: monospace;
   line-height: 15px;
   font-weight: 600;
   color: #008000;
-  border: 2px solid rgba(1, 170, 55, 0.6);
+  /* border: 2px solid rgba(244, 67, 54, 0.6); */
   border-right: unset;
   padding: 14px;
   
@@ -64,20 +80,17 @@ overflow:hidden;
 .icon-close{
   /* width: 100px; */
   height: fit-content;
-  position: absolute;
-  top: 50%;
-  left: 7%;
   transform: translate(-50%, -50%);
   /* background-color: #000; */
-  border-radius: 12px 0px 0px 12px;
-  -webkit-animation: move 2s infinite linear alternate;
-  animation: move 2s infinite linear alternate;
+  /* border-radius: 12px 0px 0px 12px; */
+  -webkit-animation: move 5s infinite linear alternate;
+  animation: move 5s infinite linear alternate;
   font-size: 24px;
   font-family: monospace;
   line-height: 15px;
   font-weight: 600;
   color: #f44336;
-  border: 2px solid rgba(202, 12, 3, 0.6);
+  /* border: 2px solid rgba(202, 12, 3, 0.6); */
   border-right: unset;
   padding: 14px;
   
@@ -85,11 +98,14 @@ overflow:hidden;
 
 @keyframes move {
   0% {
-    transform: translateX(0);
+    transform: translateX(-28%);
   }
   100% {
-    transform: translateX(45px);
+    transform: translateX(105%);
   }
+  /* 100% {
+    transform: translateX(-28%);
+  } */
 }
 
 
