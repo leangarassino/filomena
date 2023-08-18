@@ -17,9 +17,9 @@ interface Page {
 }
 
 const initialValue = [
-  {value: '', index: 0, name: 'Campeón Mundial', price: 2500},
-  {value: '', index: 1, name: 'Fiorentina', price: 2100},
-  {value: '', index: 2, name: 'Margarita', price: 1800},
+  {value: '', index: 0, name: 'Campeón Mundial', price: 3000},
+  {value: '', index: 1, name: 'Fiorentina', price: 2500},
+  {value: '', index: 2, name: 'Margarita', price: 2200},
 ]
 
 const HomePage = () => {
@@ -172,7 +172,7 @@ const array_page: Page[] = [
     color: '#00bd13',
     name: 'Campeón mundial',
     ingredients: ['Jamón', 'Morrones', 'Albahaca', 'Orégano', 'Pesto de perejil'],    
-    price: 2500
+    price: 3000
   },
   {
     page: 'https://youtu.be/06htSH24iuQ',
@@ -180,7 +180,7 @@ const array_page: Page[] = [
     color: '#ffffff',
     name: 'Fiorentina',
     ingredients: ['Roquefort', 'Cebolla rehogada', 'Tomates en rodajas', 'Orégano fresco'],
-    price: 2100
+    price: 2500
   },
   {
     page: 'https://youtu.be/06htSH24iuQ',
@@ -188,7 +188,7 @@ const array_page: Page[] = [
     color: '#e62e1b',
     name: 'Margarita',
     ingredients: ['Albahaca ', 'Orégano fresco', 'Aceite de oliva'],
-    price: 1800
+    price: 2200
   },  
 ]
 
