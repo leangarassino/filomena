@@ -62,6 +62,7 @@ const HomePage = () => {
     checkQuantity.index === index ? { ...checkQuantity, value: value } : checkQuantity
       )
     );
+    console.log('quantity', quantity);
   }
 
   return (
